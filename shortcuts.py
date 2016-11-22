@@ -177,16 +177,6 @@ def resolve_url(to, *args, **kwargs):
         if to.startswith(('./', '../')):
             return to
 
-    # Next try a reverse URL resolution.
-    try:
-        return reverse(to, args=args, kwargs=kwargs)
-    except NoReverseMatch:
-        # If this is a callable, re-raise.
-        if callable(to):
-            raise
-        # If this doesn't "feel" like a URL, re-raise.
-        if '/' not in to and '.' not in to:
-            raise
 
     # Finally, fall back and assume it's a URL
     return to
