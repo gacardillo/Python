@@ -16,5 +16,5 @@
 
     </form>
 
-{% endblock %}
+{% endblock %}  # this base.html is used for login validation 
 
